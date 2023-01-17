@@ -2,15 +2,12 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 import Layout from '@/components/Layout'
-// import {API_URL} from '@/config/index'
+import {API_URL} from '@/config/index'
 import EventItem from '@/components/EventItem'
-import Link from 'next/link'
-import fetch from 'isomorphic-unfetch'
 
 
 
-export default function Home({events}) {
-   console.log(events)
+export default function EventsPage({events}) {
   return (
     <Layout>
       <Head>
@@ -20,7 +17,7 @@ export default function Home({events}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main >
-        <h1>Upcoming Events</h1>
+        <h1 className='text-center text-2xl font-bold underline'>Events</h1>
         {events.length === 0 && <h3>No Events to show</h3>}
         {events.map((evt)=>{
 
@@ -32,27 +29,21 @@ export default function Home({events}) {
           
           )
         })}
-
-        {events.length > 0 && (
-
-          <div className='w-full text-center hover:-translate-y-1 duration-200'>
-
-            <Link href='/events' className='bg-red-500 px-4 py-2 rounded-md shadow-sm text-white'>View all events</Link>
-          </div>
-        )}
       </main>
     </Layout>
   )
 }
 
 
-export async function getServerSideProps() {
-  const {API_URL} = process.env
+export async function getServerSideProps(){
+  const {
+    API_URL
+  } = process.env
 
-  const res = await fetch(`${API_URL}/api/events?pagination[page]=1&pagination[pageSize]=3&populate=image`)
+  const res = await fetch(`${API_URL}/api/events?populate=image&?_sort=date:ASC`)
   const events = await res.json()
-
-  return {
+ 
+  return{
     props: {
       events: events.data
     }
