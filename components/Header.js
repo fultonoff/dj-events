@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Search from './Search'
 
 function Header() {
   return (
@@ -7,7 +8,7 @@ function Header() {
       <div className='text-red-500 font-bold text-2xl p-2 uppercase'>
         <Link href='/'>DJ Events</Link>
       </div>
-
+      <Search/>
       <nav>
         <ul>
             <li className='p-2 font-medium text-slate-500 duration-200 hover:text-black'>
