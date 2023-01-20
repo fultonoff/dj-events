@@ -10,9 +10,13 @@ function Header() {
       </div>
       <Search/>
       <nav>
-        <ul>
+        <ul className='flex items-center'>
             <li className='p-2 font-medium text-slate-500 duration-200 hover:text-black'>
                 <Link href='/events'>Events</Link>
+            </li>
+
+            <li>
+              <Link href='/events/add' className='text-white bg-blue-500 p-2 rounded-md shadow-md'>Add Event</Link>
             </li>
         </ul>
       </nav>

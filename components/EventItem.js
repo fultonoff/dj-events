@@ -7,7 +7,16 @@ function EventItem({evt}) {
   return (
     <div className='event'>
         <div className='img'>
-            <Image src={evt.attributes.image.data.attributes.url ? evt.attributes.image.data.attributes.url : '/public/images/event-default.png'} width={170} height={100} alt='event-image'/>
+            < Image src = {
+                evt.attributes.image.data ? evt.attributes.image.data.attributes.url : 'https://img.freepik.com/free-photo/closeup-dj-working-blue-light_181624-18773.jpg?w=2000'
+            }
+            width = {
+                170
+            }
+            height = {
+                100
+            }
+            alt = 'event-image' />
 
         </div>
         <div className='info'>

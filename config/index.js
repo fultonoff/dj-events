@@ -1,1 +1,1 @@
-// export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:1331'
+export const API_URL2 = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:1331'
